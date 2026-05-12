@@ -1,0 +1,20 @@
+{
+  "name": "team-task-manager",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Full-stack team task manager with PostgreSQL and RBAC",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "build": "npm run build --workspace=team-task-manager-client && npm run build --workspace=team-task-manager-server",
+    "start": "npm run start --workspace=team-task-manager-server",
+    "postinstall": "npm run db:generate --workspace=team-task-manager-server",
+    "dev:server": "npm run dev --workspace=team-task-manager-server",
+    "dev:client": "npm run dev --workspace=team-task-manager-client"
+  }
+}
